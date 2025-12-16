@@ -1,0 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap');
+
+/* =========================================
+   GLOBAL VARIABLES & RESET
+   ========================================= */
+:root {
+  --bg-color: #0f172a;
+  --card-bg: rgba(30, 41, 59, 0.7);
+  --primary: #3b82f6;
+  --primary-glow: rgba(59, 130, 246, 0.5);
+  --secondary: #ec4899;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --nav-glass: rgba(15, 23, 42, 0.8);
+  --danger: #ef4444;
+  --success: #10b981;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.15) 0px, transparent 50%);
+  color: var(--text-main);
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+button {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  background: var(--nav-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+.nav-links button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-main);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-links button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 800px;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  font-weight: 700;
+  background: linear-gradient(to right, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero button {
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--primary), #2563eb);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 25px -5px var(--primary-glow);
+  transition: all 0.3s ease;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.hero button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 20px 35px -10px var(--primary-glow);
+}
+
+/* =========================================
+   DEVICES GRID
+   ========================================= */
+.devices {
+  padding: 60px 5%;
+}
+
+.devices h2,
+.device-page h2,
+.control-page h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  text-align: center;
+  color: var(--text-main);
+}
+
+.device-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.device-card {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.device-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Glowing effect behind card on hover */
+.device-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.device-card:hover::before {
+  opacity: 1;
+}
+
+.device-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  display: inline-block;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
+}
+
+.device-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--text-main);
+}
+
+.device-card p {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.status {
+  font-weight: 700;
+  color: var(--success);
+}
+
+/* If status text is specifically 'OFF', maybe handle via JS or simple class if possible, 
+   but generically we style status bright. */
+
+.toggleBtn,
+.deleteBtn {
+  padding: 10px 24px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.toggleBtn {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.toggleBtn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.deleteBtn {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.deleteBtn:hover {
+  background: var(--danger);
+  color: white;
+}
+
+/* =========================================
+   FORMS (Login, Register, Add Device)
+   ========================================= */
+.auth-form,
+.add-device-form,
+.profile-page,
+.control-page {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  padding: 40px;
+  border-radius: 24px;
+  max-width: 450px;
+  margin: 80px auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.auth-form h2,
+.profile-page h2 {
+  color: var(--text-main);
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.auth-form input,
+.add-device-form input,
+.add-device-form select {
+  width: 100%;
+  padding: 14px 20px;
+  margin: 10px 0;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  color: var(--text-main);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.auth-form input:focus,
+.add-device-form input:focus,
+.add-device-form select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.auth-form button,
+.add-device-form button,
+.profile-page button,
+.control-page button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.auth-form button:hover,
+.add-device-form button:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+.auth-form p {
+  color: var(--danger);
+  margin-bottom: 20px;
+}
+
+.auth-form a {
+  color: var(--primary);
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+/* Add Device Form specific tweak for row layout if space permits */
+.add-device-form {
+  max-width: 800px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.add-device-form select,
+.add-device-form input {
+  flex: 1;
+  min-width: 200px;
+  margin: 0;
+}
+
+.add-device-form button {
+  width: auto;
+  margin: 0;
+  padding: 14px 30px;
+}
+
+/* =========================================
+   CONTROL PAGE
+   ========================================= */
+.control-page {
+  max-width: 600px;
+}
+
+.control-page input[type="range"] {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  appearance: none;
+  margin: 20px 0;
+}
+
+.control-page input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 15px var(--primary);
+}
+
+.control-page input[type="number"] {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--glass-border);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* =========================================
+   RESPONSIVE TEXT
+   ========================================= */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .add-device-form {
+    flex-direction: column;
+  }
+
+  .add-device-form select,
+  .add-device-form input,
+  .add-device-form button {
+    width: 100%;
+  }
+}
