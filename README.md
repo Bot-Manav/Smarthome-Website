@@ -29,7 +29,7 @@ To run this project locally, you need a local server environment. We recommend *
 
 1.  **Clone the Repository** (or download the source code):
     ```bash
-    git clone <your-repo-url>
+    git clone https://github.com/Bot-Manav/Smarthome-Website.git
     ```
 
 2.  **Move Files to Server Directory**:
