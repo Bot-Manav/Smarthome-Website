@@ -25,6 +25,18 @@ if (isset($_SESSION['user_id'])) {
 </head>
 
 <body>
+  <!-- Page Transition Overlay -->
+  <div class="page-transition-overlay">
+    <div class="page-transition-spinner"></div>
+  </div>
+
+  <!-- Parallax Background Shapes -->
+  <div class="parallax-bg">
+    <div class="parallax-shape parallax-shape-1" data-speed="0.1"></div>
+    <div class="parallax-shape parallax-shape-2" data-speed="0.25"></div>
+    <div class="parallax-shape parallax-shape-3" data-speed="0.15"></div>
+  </div>
+
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">SmartHome</div>
@@ -92,6 +104,7 @@ if (isset($_SESSION['user_id'])) {
   <footer>
     <p>© 2025 Smart Home Connect. All rights reserved.</p>
   </footer>
+  <script src="script.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <?php
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username = "root"; // default XAMPP username
 $password = "";     // default XAMPP password
 $dbname = "smarthome_db";

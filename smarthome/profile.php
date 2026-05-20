@@ -23,12 +23,25 @@ $user = $result->fetch_assoc();
 </head>
 
 <body>
+    <!-- Page Transition Overlay -->
+    <div class="page-transition-overlay">
+        <div class="page-transition-spinner"></div>
+    </div>
+
+    <!-- Parallax Background Shapes -->
+    <div class="parallax-bg">
+        <div class="parallax-shape parallax-shape-1" data-speed="0.1"></div>
+        <div class="parallax-shape parallax-shape-2" data-speed="0.25"></div>
+        <div class="parallax-shape parallax-shape-3" data-speed="0.15"></div>
+    </div>
+
     <div class="profile-page">
         <h2>Welcome, <?php echo $user['username']; ?></h2>
         <p><strong>Email:</strong> <?php echo $user['email']; ?></p>
         <p><strong>Member since:</strong> <?php echo $user['created_at']; ?></p>
         <a href="logout.php"><button>Logout</button></a>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>

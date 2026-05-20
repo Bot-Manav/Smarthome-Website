@@ -30,6 +30,18 @@ if (isset($_POST['register'])) {
 </head>
 
 <body>
+    <!-- Page Transition Overlay -->
+    <div class="page-transition-overlay">
+        <div class="page-transition-spinner"></div>
+    </div>
+
+    <!-- Parallax Background Shapes -->
+    <div class="parallax-bg">
+        <div class="parallax-shape parallax-shape-1" data-speed="0.1"></div>
+        <div class="parallax-shape parallax-shape-2" data-speed="0.25"></div>
+        <div class="parallax-shape parallax-shape-3" data-speed="0.15"></div>
+    </div>
+
     <div class="auth-form">
         <h2>Register</h2>
         <?php if ($message != "") {
@@ -43,6 +55,7 @@ if (isset($_POST['register'])) {
         </form>
         <p>Already have an account? <a href="login.php">Login here</a></p>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>

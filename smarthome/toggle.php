@@ -99,6 +99,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Page Transition Overlay -->
+    <div class="page-transition-overlay">
+        <div class="page-transition-spinner"></div>
+    </div>
+
+    <!-- Parallax Background Shapes -->
+    <div class="parallax-bg">
+        <div class="parallax-shape parallax-shape-1" data-speed="0.1"></div>
+        <div class="parallax-shape parallax-shape-2" data-speed="0.25"></div>
+        <div class="parallax-shape parallax-shape-3" data-speed="0.15"></div>
+    </div>
 
 <div class="control-page">
     <h2>Control: <?= htmlspecialchars($device['device_name']) ?></h2>
@@ -133,5 +144,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <a href="index.php">⬅ Back to Dashboard</a>
 </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
